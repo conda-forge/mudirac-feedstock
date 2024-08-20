@@ -1,5 +1,5 @@
 {% set name = "mudirac" %}
-{% set version = "1.0.1" %}
+{% set version = "1.1.1" %}
 
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url:  https://github.com/muon-spectroscopy-computational-project/mudirac/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 801cf46c71726265f988e984f539354c6fbab070dc101090009ee92d09ce0faa
+  url: https://github.com/muon-spectroscopy-computational-project/mudirac/archive/refs/tags/{{ version }}.tar.gz
+  sha256: d1ae58f138c18c6f515ac08267608054f89d85ac5564d2587b18363f1f634823
 
 build:
   number: 0
@@ -18,12 +18,12 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - make
 
 test:
-  commands:
-    mudirac --help
+  commands: mudirac --help
 
 about:
   home: https://muon-spectroscopy-computational-project.github.io/mudirac/
